@@ -8,18 +8,18 @@ m = 3, n = 4.
 int rows = ReadInt("Введите количество строк: ");
 int columns = ReadInt("Введите количество столбцов: ");
 double[,] numbers = new double[rows, columns];
-FillMatrixRandomDoubleNumbers(numbers);
+FillMatrixRandomDoubleNumbers(numbers, -10, 10);
 WriteMatrix(numbers);
 
 
 
-void FillMatrixRandomDoubleNumbers(double[,] array)
+void FillMatrixRandomDoubleNumbers(double[,] array, int min, int max)
 {
     for(int i = 0; i < array.GetLength(0); i++)
     {
         for(int j = 0; j < array.GetLength(1); j++)
         {
-            array[i, j] = Math.Round(new Random().NextDouble()*100, 2);
+            array[i, j] = Math.Round(new Random().NextDouble()*(max-min)+min,2);
         }
     }
 }
