@@ -12,12 +12,17 @@ int[,] numbers = new int[rows, columns];
 FillMatrixRandomNumbers(numbers);
 WriteMatrix(numbers);
 
-for(int i = 0; i < array.GetLength(0); i++)
+int sum = 0;
+double average = 0;
+for(int i = 0; i < numbers.GetLength(1); i++)
 {
-    for(int j = 0; j < array.GetLength(1); j++)
+    for(int j = 0; j < numbers.GetLength(0); j++)
     {
-        
+        sum += numbers[j,i];
     }
+    average = sum / numbers.GetLength(0);
+    Console.WriteLine(average);
+    sum = 0;
 }
 
 void FillMatrixRandomNumbers(int[,] array)
