@@ -10,22 +10,22 @@
 int rows = ReadInt("Введите количество строк: ");
 int columns = ReadInt("Введите количество столбцов: ");
 
-int positionNumber1 = ReadInt("Введите 1 позицию элемента: ");
-int positionNumber2 = ReadInt("Введите 2 позицию элемента: ");
-
-bool result = false;
+int positionNumber = ReadInt("Введите позицию элемента: ");
 
 int[,] numbers = new int[rows, columns];
 FillMatrixRandomNumbers(numbers);
 WriteMatrix(numbers);
 
-if(rows<numbers.GetLength(0) && columns<numbers.GetLength(1))
+int a = positionNumber / 10;
+int b = positionNumber % 10;
+
+if(a>numbers.GetLength(0) || b>numbers.GetLength(1))
 {
-    Console.WriteLine("Такое число есть:"+numbers[rows, columns]);
+    Console.WriteLine("Такого числа нет");
 }
 else
 {
-    Console.WriteLine("Такого числа нет");
+    Console.WriteLine($"Такое число есть: {numbers[a,b]}");
 }
 
 void FillMatrixRandomNumbers(int[,] array)
